@@ -1,0 +1,68 @@
+用户认证
+多用户（非同时访问）
+每个用户有自己的家目录
+用户可以在自己的家目录，进行目录切换
+用户可以查看当前目录的文件列表，文件名，文件大小
+断点续传
+
+命令规范:
+dir
+get file
+put file
+进度条展示
+del file
+mkdir dir
+
+
+目录结构:
+Multi_User_FTP
+    server
+        bin
+            ftp_server.py
+        conf
+            settings.py
+                HOST = ''
+                PORT = 9000
+                HOME_DIR = 'home'
+            account.py
+                [alex]
+                    /home/alex
+
+                {
+                    alex: {
+                        password: 'alsmamsc'
+                        home: '/home/alex'
+                        quotation: 400  # 多少兆
+                    },
+
+                }
+        core/modules/lib
+            main.py
+            ...
+            ...
+        log
+            server.log
+
+    client
+        mad_client.py -h 192.168.1.23 -p 9999
+        username:
+        password:
+
+        list file
+            file1   total 5000  recv 3000
+            file2   total 5000  recv 3000
+
+            file1
+
+
+class FTPServer()
+
+    def handle()
+        cmd = data.split()  # get file1
+        if hasattr(self,cmd)
+            func = getattr(self.cmd)
+            func(cmd)
+
+    def get(*args,**kwargs)
+    def put(*args,**kwargs)
+    def mkdir(*args,**kwargs)
